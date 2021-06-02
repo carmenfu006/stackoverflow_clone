@@ -1,1 +1,12 @@
 <h1> <%= current_user.email %> </h1>
+
+<button>
+  <%= link_to 'Ask', new_question_path %>
+</button>
+
+<section>
+  <h1>Your Question</h1>
+  <% @questions.each do |question| %>
+    <%= link_to "#{question.title}", question_path(question) %>
+  <% end %>
+</section>

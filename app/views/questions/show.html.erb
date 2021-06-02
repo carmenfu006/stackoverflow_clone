@@ -1,0 +1,10 @@
+<h1>
+  Question: <%= @question.title %>
+</h1>
+
+<button>
+  <%= link_to 'Edit', edit_question_path(@question) %>
+</button>
+<button>
+  <%= link_to 'Delete', question_path(@question), method: :delete %>
+</button>
