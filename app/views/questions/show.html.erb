@@ -1,6 +1,15 @@
-<h1>
-  Question: <%= @question.title %>
-</h1>
+
+
+<section>
+  <div>
+    <h1>
+      Question: <%= @question.title %>
+    </h1>
+  </div>
+  <div>
+    <%== @question.content %>
+  </div>
+</section>
 
 <button>
   <%= link_to 'Edit', edit_question_path(@question) %>

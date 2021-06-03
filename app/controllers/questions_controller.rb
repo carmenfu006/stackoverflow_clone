@@ -23,7 +23,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to user_path(current_user), notice: 'Question was successfully updated.'
+      redirect_to question_path(@question), notice: 'Question was successfully updated.'
     else
       render :edit
     end
@@ -40,7 +40,7 @@ class QuestionsController < ApplicationController
     end
 
     def question_params
-      params.require(:question).permit(:title)
+      params.require(:question).permit(:title, :content)
     end
 
 end
