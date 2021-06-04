@@ -4,5 +4,10 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: [:show]
-  resources :questions
+  resources :questions do
+    member do
+      post 'upvote'
+      post 'downvote' 
+    end
+  end
 end

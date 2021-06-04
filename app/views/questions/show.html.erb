@@ -2,6 +2,17 @@
 
 <section>
   <div>
+    <h3>
+      Vote: <%= @question.vote %>
+    </h3>
+    <button>
+      <%= link_to 'Up', upvote_question_path(@question), method: :post%>
+    </button>
+    <button>
+      <%= link_to 'Down', downvote_question_path(@question), method: :post%>
+    </button>
+  </div>
+  <div>
     <h1>
       Question: <%= @question.title %>
     </h1>
