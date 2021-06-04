@@ -9,5 +9,8 @@ Rails.application.routes.draw do
       post 'upvote'
       post 'downvote' 
     end
+    resources :answers do
+      post 'vote'
+    end
   end
 end
