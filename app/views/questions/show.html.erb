@@ -41,6 +41,9 @@
     <button>
       <%= link_to 'Down', question_answer_vote_path(@question, answer, voting: 'downvote'), method: :post, remote: true %>
     </button>
+    <button>
+      <%= link_to 'Delete', question_answer_path(@question, answer), method: :delete %>
+    </button>
   <% end %>
 </section>
 

@@ -11,6 +11,13 @@ class AnswersController < ApplicationController
     end
   end
 
+  def destroy
+    question = Question.find(params[:question_id])
+    answer = Answer.find(params[:id])
+    answer.destroy
+    redirect_to question_path(question), notice: 'This answer was successfully destroyed.'
+  end
+
   def vote
     @answer = Answer.find(params[:answer_id])
     current_vote = @answer.vote
