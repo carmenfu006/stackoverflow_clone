@@ -17,3 +17,5 @@ const imagePath = (name) => images(name, true)
 
 Rails.start()
 ActiveStorage.start()
+
+import "controllers"

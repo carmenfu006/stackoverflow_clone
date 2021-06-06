@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     end
     resources :answers do
       post 'vote'
+
+      resources :comments
     end
   end
 end

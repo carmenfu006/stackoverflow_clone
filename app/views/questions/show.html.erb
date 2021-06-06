@@ -30,6 +30,7 @@
   <div>
     <h1>Answer</h1>
   </div>
+  
   <% @question.answers.all.each do |answer| %>
     <h3>
       Vote : <span id='answer_<%= answer.id %>_vote'><%= answer.vote %></span>
@@ -44,10 +45,17 @@
     <button>
       <%= link_to 'Delete', question_answer_path(@question, answer), method: :delete %>
     </button>
+    <button>
+      <%= link_to 'Add comment', question_answer_comments_path(@question, answer) %>
+    </button>
+
+    <h4>Comments</h4>
+
   <% end %>
 </section>
 
 <section>
+  <h1>New Answer</h1>
   <%= form_for ([@question, @answer]) do |f| %>
     <%= f.text_area :body, placeholder: 'Post your answer here' %>
     <%= f.submit "Post" %>
