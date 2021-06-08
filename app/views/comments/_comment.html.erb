@@ -1,5 +1,0 @@
-<%= turbo_frame_tag dom_id(comment) do %>
-  <br>
-  <%= comment.body %>
-  <%= button_to 'Delete', question_answer_comment_path(comment.question, comment.answer, comment), method: :delete %>
-<% end %>

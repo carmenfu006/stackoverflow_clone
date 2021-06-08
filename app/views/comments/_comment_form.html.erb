@@ -1,9 +1,0 @@
-<%= form_for ([@question, @answer, @comment]), id: dom_id(@comment) do |f| %>
-  <% if @comment.errors.any? %>
-    <% @comment.errors.each do |error| %>
-      <%= error.full_message %>
-    <% end %>
-  <% end %>
-  <%= f.text_area :body, placeholder: 'Post your comment here' %>
-  <%= f.submit "Comment" %>
-<% end %>

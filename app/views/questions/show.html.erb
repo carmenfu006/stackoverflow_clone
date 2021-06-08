@@ -45,12 +45,19 @@
     <button>
       <%= link_to 'Delete', question_answer_path(@question, answer), method: :delete %>
     </button>
-    <button>
-      <%= link_to 'Add comment', question_answer_comments_path(@question, answer) %>
-    </button>
+    <br>
+    
+    <% answer.comments.each do |comment| %>
+      <br>
+      <%= comment.body %>
+      <%= link_to 'Delete', question_answer_comment_path(@question, answer, comment), method: :delete %>
+    <% end %>
 
-    <h4>Comments</h4>
-
+    <%= form_for ([@question, answer, @comment]), data: { turbo: false } do |f| %>
+      <%= render partial: 'shared/form_error', locals: { object: @comment } %>
+      <%= f.text_area :body, placeholder: 'Add your comment here'%>
+      <%= f.submit "Comment" %>
+    <% end %>
   <% end %>
 </section>
 
