@@ -1,5 +1,17 @@
 <section>
   <div>
+    <% if @bookmarked %>
+      <button>
+        <%= link_to 'Unbookmark', bookmark_path(@bookmarked), method: :delete %>
+      </button>
+    <% else %>
+      <%= form_for (Bookmark.new) do |f| %>
+        <%= render partial: 'shared/form_error', locals: { object: Bookmark.new } %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :question_id, value: @question.id %>
+        <%= f.submit "Bookmark" %>
+      <% end %>
+    <% end %>
     <h3>
       Vote: <%= @question.vote %>
     </h3>

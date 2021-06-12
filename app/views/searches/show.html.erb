@@ -1,0 +1,11 @@
+<h1>This is the search show page</h1>
+
+<%= form_with model: @new_search do |f| %>
+  <%= f.text_field :query %>
+  <%= f.submit 'search' %>
+<% end %>
+
+<% @searches.each do |question| %>
+  <br>
+  <%= link_to "#{question.title}", question_path(question) %>
+<% end %>

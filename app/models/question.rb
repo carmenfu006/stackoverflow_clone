@@ -5,4 +5,5 @@ class Question < ApplicationRecord
 
   has_many :answers
   has_many :comments, through: :answers
+  has_many :bookmarks
 end

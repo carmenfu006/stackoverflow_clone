@@ -18,6 +18,7 @@ class QuestionsController < ApplicationController
   def show
     @answer = @question.answers.new
     @comment = Comment.new
+    @bookmarked = current_user.bookmarks.find_by_question_id(@question.id)
   end
 
   def edit
