@@ -5,7 +5,9 @@ class AnswersController < ApplicationController
     answer = question.answers.new(answer_params.merge(user_id: current_user.id))
 
     if answer.save
-      redirect_to question_path(question), notice: 'This question was successfully upvoted.'
+      redirect_to question_path(question), notice: 'This question was successfully created.'
+      # mailer
+      AnswerMailer.new_answer_notification(question, answer).deliver_now
     else
       redirect_to question_path(question), alert: 'There was an error. Please try again.'
     end

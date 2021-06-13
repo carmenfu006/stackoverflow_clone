@@ -26,6 +26,10 @@ gem 'redis', '~> 4.0'
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
 
+gem 'rexml', '~> 3.2', '>= 3.2.4'
+
+gem 'letter_opener_web', '~> 1.3.4'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 

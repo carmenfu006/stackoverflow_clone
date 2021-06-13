@@ -18,4 +18,6 @@ Rails.application.routes.draw do
 
   resources :bookmarks, only: [:create, :destroy]
   resources :searches, only: [:create, :show]
+
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end
