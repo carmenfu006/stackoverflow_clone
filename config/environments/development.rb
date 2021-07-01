@@ -33,10 +33,29 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
-  config.action_mailer.delivery_method = :letter_opener_web
+  # config.action_mailer.delivery_method = :letter_opener_web
 
+  ##### Use gmail app password
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+
+  config.action_mailer.perform_deliveries = true
+  
+  config.action_mailer.delivery_method = :smtp
+
+  # replace with your own url / Site domain  
+  config.action_mailer.default_url_options = { host: Rails.application.credentials[Rails.env.to_sym][:SITE_DOMAIN], protocol: 'http' }
+
+  # SMTP settings for gmail
+  config.action_mailer.smtp_settings = {
+    user_name: Rails.application.credentials[Rails.env.to_sym][:SMTP_USERNAME],
+    address: Rails.application.credentials[Rails.env.to_sym][:SMTP_ADDRESS],
+    password: Rails.application.credentials[Rails.env.to_sym][:SMTP_PASSWORD],
+    domain: Rails.application.credentials[Rails.env.to_sym][:SITE_DOMAIN],
+    port: 587,
+    enable_starttls_auto: true,
+    authentication: 'plain'
+  }
 
   config.action_mailer.perform_caching = false
 
